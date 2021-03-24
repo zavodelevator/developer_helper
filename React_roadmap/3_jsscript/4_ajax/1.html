@@ -1,0 +1,21 @@
+<script>
+    function func_before (){
+        $("#information").text (data)
+    }
+    function func_saccess (){
+        $("#information").text (data)
+    }
+
+    $(document).ready (function (){
+        $("#load").bind("click", function () {
+            let admin = "Admin"
+
+            $.ajax ({
+                utl: "content.php",
+                type: "POST",
+                data: ({name: admin, number: 5}),
+                
+            })
+        })
+    })
+</script>
