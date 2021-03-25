@@ -1,0 +1,52 @@
+https://www.w3schools.com/html/html5_semantic_elements.asp <head>
+    <script>
+        function func_before (){
+            $("#information").text (data)
+        }
+        function func_saccess (){
+            $("#information").text (data)
+        }
+
+        $(document).ready (function (){
+            $("#load").bind("click", function () {
+                let admin = "Admin"
+
+                $.ajax ({
+                    utl: "content.php",
+                    type: "POST",
+                    data: ({name: admin, number: 5}),
+                    dataType: "html",
+                    beforeSend: func_before,
+                    success:func_saccess                
+                })
+            })
+
+
+            $("#done").bind("click", function () {
+                let admin = "Admin"
+
+                $.ajax ({
+                    utl: "check.php",
+                    type: "POST",
+                    data: ({name: $("#name").val()}),
+                    dataType: "html",
+                    beforeSend: function (data) {
+                        if(data == "fail")
+                            alert("name is busy")
+                        el
+                            $("#information").text(data)
+                    },
+                    success: function (data){
+                        $("#information").text (data);
+                    }                
+                })
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <input type="text" id="name">
+    <p id="load" style="cursor:pointer">Downloade data</p>
+    <div>Insormation</div>
+</body>
