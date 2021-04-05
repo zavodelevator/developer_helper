@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //EVERY
+        //function every (inner){
+            
+            const a = [4, 6, 1, 8 ];
+            const c = [
+                {
+                    name: "Ivan",
+                    age: 18
+                },
+                {
+                    name: "Anatoliy",
+                    age: 16
+                },
+                {
+                    name: "Stepan",
+                    age: 22
+                }
+            ]
+            //every
+                //after every ellement have true ansver every equal true
+                // if arrey empty method come beack "false"
+            let b = a.every(item => {
+                if (item > 2)
+                {    
+                    return true
+                }
+            })
+
+            let d = c.every(item => {
+                if (item.age >= 18)
+                {    
+                    return true
+                }
+            })
+
+            //some
+                // is jast one small 18
+
+            let e = c.some(item => {
+                if (item.age < 18)
+                {    
+                    return true
+                }
+            })
+        
+
+        //}
+
+            console.log(e)
+        
+    
+            //link https://www.youtube.com/watch?v=X8JdA4hUURc
+    </script>
+</body>
+</html>
