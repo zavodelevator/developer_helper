@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+
+</head>
+
+
+<!--     LINK ON TOOTORIALL EXAMPLE
+
+https://coderoad.ru/28782074/%D0%9A%D0%BE%D0%B4-%D0%BE%D1%82-Excel-%D0%B4%D0%BE-JSON-javascript   
+    
+-->
+
+
+
+
+
+
+
+
+
+
+<body>
+
+    <input type="file" id="my_file_input" />
+    <div id='my_file_output'></div> 
+
+    <script>
+
+        var oFileIn;
+
+        $(function() {
+            oFileIn = document.getElementById('my_file_input');
+            if(oFileIn.addEventListener) {
+                oFileIn.addEventListener('change', filePicked, false);
+            }
+        });
+
+
+        function filePicked(oEvent) {
+            // Get The File From The Input
+            var oFile = oEvent.target.files[0];
+            var sFilename = oFile.name;
+            // Create A File Reader HTML5
+            var reader = new FileReader();
+
+            // Ready The Event For When A File Gets Selected
+            reader.onload = function(e) {
+                var data = e.target.result;
+                var cfb = XLS.CFB.read(data, {type: 'binary'});
+                var wb = XLS.parse_xlscfb(cfb);
+                // Loop Over Each Sheet
+                wb.SheetNames.forEach(function(sheetName) {
+                    // Obtain The Current Row As CSV
+                    var sCSV = XLS.utils.make_csv(wb.Sheets[sheetName]);   
+                    var oJS = XLS.utils.sheet_to_row_object_array(wb.Sheets[sheetName]);   
+
+                    $("#my_file_output").html(sCSV);
+                    // console.log(oJS)
+                    var fileJson = oJS
+                });
+
+            };
+
+            
+
+            // Tell JS To Start Reading The File.. You could delay this if desired
+            reader.readAsBinaryString(oFile);
+        }
+
+        
+
+
+    </script>
+        
+      
+</body>
+</html>
