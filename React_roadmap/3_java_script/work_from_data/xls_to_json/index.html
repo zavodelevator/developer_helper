@@ -39,7 +39,6 @@ https://overcoder.net/q/47099/%D0%BA%D0%B0%D0%BA-%D1%80%D0%B0%D0%B7%D0%BE%D0%B1%
     <input type="file" id="my_file_input" />
     <table id='my_file_output'></table> 
 
-
     <Script>
         
         var oFileIn;
@@ -53,6 +52,10 @@ $(function() {
 
 
 function filePicked(oEvent) {
+
+
+
+    
     // Get The File From The Input
     var oFile = oEvent.target.files[0];
     var sFilename = oFile.name;
@@ -67,16 +70,26 @@ function filePicked(oEvent) {
         // Loop Over Each Sheet
         wb.SheetNames.forEach(function(sheetName) {
             // Obtain The Current Row As CSV
-            var sCSV = XLS.utils.make_csv(wb.Sheets[sheetName]);   
-            var data = XLS.utils.sheet_to_json(wb.Sheets[sheetName], {header:1});   
+            var sCSV = XLS.utils.make_csv(wb.Sheets[sheetName]); 
+
+            var data = XLS.utils.sheet_to_json(wb.Sheets[sheetName], {header:1});  
+
             $.each(data, function( indexR, valueR ) {
                 var sRow = "<tr>";
+
                 $.each(data[indexR], function( indexC, valueC ) {
                     sRow = sRow + "<td>" + valueC + "</td>";
                 });
+
                 sRow = sRow + "</tr>";
                 $("#my_file_output").append(sRow);
             });
+            
+
+            data.forEach(it => console.log(it))
+
+            
+            
         });
     };
     
@@ -85,7 +98,7 @@ function filePicked(oEvent) {
 }
 
     </Script>
-
+ 
 
 
     <!-- <script>
