@@ -1,11 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Document</title>
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
@@ -36,9 +39,25 @@ https://overcoder.net/q/47099/%D0%BA%D0%B0%D0%BA-%D1%80%D0%B0%D0%B7%D0%BE%D0%B1%
 
 <body>
 
-    <input type="file" id="my_file_input" />
-    <table id='my_file_output'></table> 
+    <div class="container">
 
+        <br>
+        <input type="file" id="my_file_input" />
+        <br>
+        <br>
+        <table class="table table-sm" id='my_file_output'></table> 
+
+        <div></div>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
     <Script>
         
         var oFileIn;
@@ -60,6 +79,8 @@ function filePicked(oEvent) {
     // Get The File From The Input
     var oFile = oEvent.target.files[0];
     var sFilename = oFile.name;
+
+    let goods = []
     // Create A File Reader HTML5
     var reader = new FileReader();
 
@@ -171,26 +192,26 @@ function filePicked(oEvent) {
 
                 // обєднання даних для таблиці
 
-                let itishechka2 =[]
+                let element_list_goods_for_vue =[] //is concat parametres skrew spirall
 
                 for(i=0; i < itishechka.length; i++){
                     if (i==0){
                         let tempr  = itishechka[i].join(' ')
-                        itishechka2.push(tempr)
+                        element_list_goods_for_vue.push(tempr)
                         tempr = ""
                     }
                     if (i !== 0){
-                        itishechka2.push(itishechka[i])
+                        element_list_goods_for_vue.push(itishechka[i])
                     }    
                 }
 
               
 
 
-                console.log(itishechka2)
+                console.log(element_list_goods_for_vue)
                 b=""
                 itishechka = []
-                itishechka2 = []
+                element_list_goods_for_vue = []
 
                 
 
@@ -241,5 +262,16 @@ function filePicked(oEvent) {
         };
     </script> -->
 
-</body>
+
+
+
+
+
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
 </html>
