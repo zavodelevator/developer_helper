@@ -109,11 +109,11 @@ function filePicked(oEvent) {
             });
             
 
-
+            console.log(data)
 
             data.forEach(it => {
 
-                // console.log(it[0])
+                // console.log(it)
                 let b = it[0]
 
 
@@ -123,7 +123,7 @@ function filePicked(oEvent) {
                 b = b.replace("Ê³ë-òü", "Кількість")
                 b = b.replace("ÏÍ", "ПН")
                 
-                b = b.replace(/[é öóêåíãøùçõ¿ô³âàïðîëäæºÿ÷ñìèòüáþ*a-sl-´]/gi, "_")
+                b = b.replace(/[é öóêåíãøùçõ¿ô³âàïðîëäæºÿ÷ñìèòüáþ*a-sl-´]/gi,  "_")
 
                 //  символи проблемної кодіровки éöóêåíãøùçõ¿ô³âàïðîëäæºÿ÷ñìèòüáþ´ÉÖÓÊÅÍÃØÙÇÕ¯Ô²ÂÀÏÐÎËÄÆªß×ÑÌÈÒÜÁÞ   йцукенгшщзхїфівапролджєячсмитьбюґЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮ
 
@@ -208,7 +208,7 @@ function filePicked(oEvent) {
               
 
 
-                console.log(element_list_goods_for_vue)
+                // console.log(element_list_goods_for_vue)
                 b=""
                 itishechka = []
                 element_list_goods_for_vue = []
