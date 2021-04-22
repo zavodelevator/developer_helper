@@ -41,8 +41,12 @@ react *** https://stackblitz.com/edit/react-excel-to-json-parser?file=MakeColumn
 
     <div class="container">
 
+        
+
+
         <br>
-        <input type="file" id="my_file_input" />
+        <input type="file" id="file" ng-model="csvFile"  
+    onchange="angular.element(this).scope().ExcelExport(event)"/>
         <br>
         <br>
         <table class="table table-sm" id='my_file_output'></table> 
