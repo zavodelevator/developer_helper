@@ -64,13 +64,43 @@ function filePicked(oEvent) {
             var oJS = XLS.utils.sheet_to_row_object_array(wb.Sheets[sheetName]);   
 
             $("#my_file_output").html(sCSV);
-            console.log(oJS)
+            console.log()
+            // buld_table (oJS)
         });
     };
 
     // Tell JS To Start Reading The File.. You could delay this if desired
     reader.readAsBinaryString(oFile);
+
+
+   
+
+
+
 }
+
+
+function buld_table (data){
+
+
+// for (let index = 0; index < data.length; index++) {
+//    console.log(data[index]); 
+
+// }
+
+data.forEach(its=>{    
+    
+    console.log(its);
+
+    // let newSTR = its        
+    
+    // console.log(newSTR);
+    // console.log(typeof(newSTR));
+    
+})
+
+}
+
 
         
 
